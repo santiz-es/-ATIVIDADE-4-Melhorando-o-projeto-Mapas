@@ -27,5 +27,8 @@ Atualização da posição no mapa durante a movimentação do dispositivo
 
 ---
 
-## Estrutura do Projeto
+## integrantes
 
+-[Santiago Escobar](https://github.com/santiz-es)
+-[Veronica Ferreira](https://github.com/veroafr)
+-[Martin Mosegui](https://github.com/MartinMosegui)

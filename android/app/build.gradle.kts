@@ -1,12 +1,11 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
 android {
-    namespace = "br.edu.ifsul.flutter_mapas_osm"
+    namespace = "br.com.rafaelamorim.mapamvs"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -20,21 +19,27 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "br.edu.ifsul.flutter_mapas_osm"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        applicationId = "br.com.rafaelamorim.mapamvs"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        release {
+            storeFile file("key.jks")
+            storePassword "SENHA_DO_KEYSTORE"
+            keyAlias "ALIAS_DA_CHAVE"
+            keyPassword "SENHA_DA_CHAVE"
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig signingConfigs.release
+            shrinkResources false
+            minifyEnabled false
         }
     }
 }
